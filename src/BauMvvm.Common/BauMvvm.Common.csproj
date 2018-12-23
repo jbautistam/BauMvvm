@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE7557E6-285E-4FD7-8D83-5B0CDE7553D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bau.Libraries.BauMvvm.Common</RootNamespace>
+    <AssemblyName>BauMvvm.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Messengers\Common\MessageBarProgress.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessageCommand.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessageError.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessageLog.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessageParameters.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessagePlayMedia.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessageProgress.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessageRecentFileUsed.cs" />
+    <Compile Include="Controllers\Messengers\Common\MessageRequestData.cs" />
+    <Compile Include="Controllers\Messengers\EventArgsSent.cs" />
+    <Compile Include="Controllers\Messengers\Message.cs" />
+    <Compile Include="Controllers\Messengers\MessengerController.cs" />
+    <Compile Include="Controllers\Processes\AbstractBaseProcess.cs" />
+    <Compile Include="Controllers\Processes\AbstractPlannedProcess.cs" />
+    <Compile Include="Controllers\Processes\AbstractTask.cs" />
+    <Compile Include="Controllers\Processes\EventArguments\ActionEventArgs.cs" />
+    <Compile Include="Controllers\Processes\EventArguments\EndProcessEventArgs.cs" />
+    <Compile Include="Controllers\Processes\EventArguments\ProgressActionEventArgs.cs" />
+    <Compile Include="Controllers\Processes\EventArguments\ProgressEventArgs.cs" />
+    <Compile Include="Controllers\Processes\SchedulerController.cs" />
+    <Compile Include="Controllers\Processes\TasksQueue.cs" />
+    <Compile Include="Controllers\Settings\Configuration.cs" />
+    <Compile Include="Controllers\Settings\ParameterModel.cs" />
+    <Compile Include="Controllers\Settings\ParametersModelCollection.cs" />
+    <Compile Include="Controllers\Settings\ParametersRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\LibHelper\src\LibHelper.csproj">
+      <Project>{1a2f2bad-2004-45bd-b600-dbb1048e33b1}</Project>
+      <Name>LibHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\LibMarkup\src\LibMarkup.csproj">
+      <Project>{06b8e24d-d21c-4fb8-bc47-14b2d4d61497}</Project>
+      <Name>LibMarkup</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

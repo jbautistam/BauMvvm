@@ -1,0 +1,6 @@
+[submodule "Modules/LibHelper"]
+	path = Modules/LibHelper
+	url = https://github.com/jbautistam/LibHelper
+[submodule "Modules/LibMarkup"]
+	path = Modules/LibMarkup
+	url = https://github.com/jbautistam/LibMarkup
