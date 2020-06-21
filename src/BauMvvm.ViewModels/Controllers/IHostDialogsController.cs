@@ -15,12 +15,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Controllers
 		/// <summary>
 		///		Abre el cuadro de diálogo de carga de varios archivos
 		/// </summary>
-		string[] OpenDialogLoadFilesMultiple(string defaultPath, string filter, string defaultFileName = null, string defaultExtension = null);
-
-		/// <summary>
-		///		Abre el cuadro de diálogo de carga de varios archivos
-		/// </summary>
-		string[] OpenDialogLoadFiles(bool multiple, string defaultPath, string filter, string defaultFileName, string defaultExtension);
+		string[] OpenDialogLoadFiles(string defaultPath, string filter, string defaultFileName = null, string defaultExtension = null);
 
 		/// <summary>
 		///		Abre el cuadro de diálogo de grabación de archivos

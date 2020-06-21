@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 using Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems;
 
-namespace Bau.Libraries.BauMvvm.Views.Forms.Trees
+namespace Bau.Libraries.BauMvvm.Views.Wpf.Forms.Trees
 {
 	/// <summary>
 	///		Controlador de dragDrop de un árbol

@@ -13,7 +13,8 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems
 		private ObservableCollection<IHierarchicalViewModel> _children;
 
 		protected ControlHierarchicalViewModel(IHierarchicalViewModel parent, string text, object tag = null, 
-											   bool lazyLoad = true, Media.MvvmColor foreground = null) : base(text, tag, foreground)
+											   bool lazyLoad = true, bool isBold = false, Media.MvvmColor foreground = null) 
+								: base(text, tag, isBold, foreground)
 		{
 			// Asigna las propiedades
 			Parent = parent;

@@ -7,6 +7,11 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Controllers
     /// </summary>
     public interface IHostController
     {
+		/// <summary>
+		///		Controlador de diálogos de sistema
+		/// </summary>
+		IHostDialogsController DialogsController { get; }
+
         /// <summary>
         ///     Controlador con funciones del sistema
         /// </summary>

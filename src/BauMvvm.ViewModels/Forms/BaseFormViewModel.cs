@@ -45,18 +45,6 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms
 			RequestClose?.Invoke(this, new EventArguments.EventCloseArgs(result == SystemControllerEnums.ResultType.Yes));
 		}
 
-		///// <summary>
-		/////		Avisa del cierre del viewModel
-		///// </summary>
-		//public virtual void CloseViewModel()
-		//{
-		//}
-
-		///// <summary>
-		/////		ViewModel con los datos
-		///// </summary>
-		//public object ViewModelData { get; }
-
 		/// <summary>
 		///		Menús
 		/// </summary>

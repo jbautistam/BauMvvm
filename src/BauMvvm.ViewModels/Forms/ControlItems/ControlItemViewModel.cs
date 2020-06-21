@@ -9,13 +9,14 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems
 	{ 
 		// Variables privadas
 		private bool _isSelected, _isChecked, _isBold, _isItalic;
-		private string _text, _imageSource;
+		private string _text, _toolTipText, _imageSource;
 		private Media.MvvmColor _foreground = Media.MvvmColor.Black;
 
-		public ControlItemViewModel(string text, object tag, Media.MvvmColor foreground = null)
+		public ControlItemViewModel(string text, object tag, bool isBold = false, Media.MvvmColor foreground = null)
 		{
 			Text = text;
 			Tag = tag;
+			IsBold = isBold;
 			Foreground = foreground ?? Media.MvvmColor.Black;
 		}
 
@@ -31,6 +32,15 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems
 		{
 			get { return _text; }
 			set { CheckProperty(ref _text, value); }
+		}
+
+		/// <summary>
+		///		Texto del tooltip
+		/// </summary>
+		public string ToolTipText
+		{
+			get { return _toolTipText; }
+			set { CheckProperty(ref _toolTipText, value); }
 		}
 
 		/// <summary>

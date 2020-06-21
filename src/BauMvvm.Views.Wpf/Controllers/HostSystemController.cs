@@ -3,7 +3,7 @@ using System.Windows;
 
 using Bau.Libraries.BauMvvm.ViewModels.Controllers;
 
-namespace Bau.Libraries.BauMvvm.Views.Controllers
+namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 {
 	/// <summary>
 	///		Controlador de ventanas comunes
@@ -88,7 +88,7 @@ namespace Bau.Libraries.BauMvvm.Views.Controllers
 		/// </summary>
 		public virtual void ShowNotification(SystemControllerEnums.NotificationType type, string title, string message, TimeSpan expiration, string urlImage = null)
 		{
-			ShowMessage(message);
+			new Notifications.NotificationsManager().ShowNotification(type, ApplicationName, title, message, expiration, urlImage);
 		}
 
 		/// <summary>

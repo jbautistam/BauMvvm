@@ -4,7 +4,7 @@ using System.Windows;
 
 using Bau.Libraries.BauMvvm.ViewModels.Controllers;
 
-namespace Bau.Libraries.BauMvvm.Views.Controllers
+namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 {
 	/// <summary>
 	///		Controlador de ventanas comunes

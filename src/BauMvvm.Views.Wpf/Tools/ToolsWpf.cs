@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Bau.Libraries.BauMvvm.Views.Tools
+namespace Bau.Libraries.BauMvvm.Views.Wpf.Tools
 {
 	/// <summary>
 	///		Métodos de ayuda para Wpf

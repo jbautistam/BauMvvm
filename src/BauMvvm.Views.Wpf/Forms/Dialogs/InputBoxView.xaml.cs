@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Bau.Libraries.BauMvvm.Views.Forms.Dialogs
+namespace Bau.Libraries.BauMvvm.Views.Wpf.Forms.Dialogs
 {
 	/// <summary>
 	///		Ventana para mostrar un texto

@@ -12,8 +12,8 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 		// Eventos públicos
 		public event EventHandler CanExecuteChanged;
 		// Variables privadas
-		private readonly Action<object> actionExecute = null;
-		private readonly Predicate<object> predicateCanExecute = null;
+		private readonly Action<object> _executeMethod = null;
+		private readonly Predicate<object> _canExecuteMethod = null;
 
 		public BaseCommand(Action<object> execute, Predicate<object> canExecute = null,
 						   INotifyPropertyChanged source = null, string propertyName = null) : this(null, execute, canExecute, source, propertyName)
@@ -24,8 +24,8 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 						   INotifyPropertyChanged source = null, string propertyName = null)
 		{
 			Caption = caption;
-			actionExecute = execute;
-			predicateCanExecute = canExecute;
+			_executeMethod = execute;
+			_canExecuteMethod = canExecute;
 			if (source != null)
 				AddListener(source, propertyName);
 		}
@@ -35,7 +35,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 		/// </summary>
 		public void Execute(object parameter)
 		{
-			actionExecute?.Invoke(parameter);
+			_executeMethod?.Invoke(parameter);
 		}
 
 		/// <summary>
@@ -43,8 +43,8 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 		/// </summary>
 		public bool CanExecute(object parameter)
 		{
-			if (predicateCanExecute != null)
-				return predicateCanExecute(parameter);
+			if (_canExecuteMethod != null)
+				return _canExecuteMethod(parameter);
 			else
 				return true;
 		}

@@ -11,6 +11,8 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 	{ 
 		// Eventos públicos
 		public event PropertyChangedEventHandler PropertyChanged;
+		// Variables privadas
+		private bool _isUpdated;
 
 		protected BaseObservableObject(bool changeUpdated = true)
 		{
@@ -84,8 +86,20 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 
 		/// <summary>
 		///		Indica si los datos del modelo se han modificado
+		///		Lanza también el evento de PropertyChanged para que se pueda asociar al mismo manejador de eventos
 		/// </summary>
-		public virtual bool IsUpdated { get; set; }
+		public virtual bool IsUpdated 
+		{ 
+			get { return _isUpdated; }
+			set 
+			{ 
+				if (_isUpdated != value)
+				{
+					_isUpdated = value;
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsUpdated)));
+				}
+			}
+		}
 
 		/// <summary>
 		///		Indica si se debe cambiar el valor de IsUpdated en el formulario

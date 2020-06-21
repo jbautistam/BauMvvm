@@ -8,13 +8,11 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.ComboItems
 	public class ComboViewModel : BaseObservableObject
 	{ 
 		// Variables privadas
-		private readonly string _propertyView;
 		private ComboItem _selectedItem;
 
-		public ComboViewModel(BaseObservableObject viewModelParent, string propertyView)
+		public ComboViewModel(BaseObservableObject viewModelParent)
 		{
 			ViewModelParent = viewModelParent;
-			_propertyView = propertyView;
 		}
 
 		/// <summary>
@@ -34,10 +32,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.ComboItems
 			set
 			{
 				if (CheckObject(ref _selectedItem, value))
-				{
-					//ViewModelParent.RaiseEventPropertyChanged(_propertyView);
 					ViewModelParent.IsUpdated = true;
-				}
 			}
 		}
 
