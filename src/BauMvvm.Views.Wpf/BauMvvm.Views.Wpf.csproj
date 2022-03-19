@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+	  <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>Bau.Libraries.BauMvvm.Views.Wpf</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\IHostViewsController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Themes\Images\Accept.png" />
+    <None Remove="Themes\Images\Delete.png" />
+    <None Remove="Themes\Images\Info.png" />
+    <None Remove="Themes\Images\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BauMvvm.Views\BauMvvm.Views.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\Images\Accept.png" />
+    <Resource Include="Themes\Images\Delete.png" />
+    <Resource Include="Themes\Images\Info.png" />
+    <Resource Include="Themes\Images\Warning.png" />
+  </ItemGroup>
+</Project>
