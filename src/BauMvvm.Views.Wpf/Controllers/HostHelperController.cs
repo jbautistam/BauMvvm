@@ -10,6 +10,7 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 	/// </summary>
 	public class HostHelperController
 	{
+
 		public HostHelperController(Window mainWindow)
 		{
 			MainWindow = mainWindow;
