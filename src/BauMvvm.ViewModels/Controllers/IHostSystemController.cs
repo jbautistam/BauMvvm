@@ -36,5 +36,10 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Controllers
 		///		Muestra un cuadro de diálogo para introducir un texto multilínea
 		/// </summary>
 		SystemControllerEnums.ResultType ShowInputMultilineString(string message, ref string input);
+
+		/// <summary>
+		///		Muestra un cuadro de diálogo para introducir una contraseña
+		/// </summary>
+		SystemControllerEnums.ResultType ShowPasswordString(string message, ref string password);
 	}
 }

@@ -21,8 +21,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Controllers
 		/// <summary>
 		///		Muestra una notificación
 		/// </summary>
-		Task ShowNotificationAsync(SystemControllerEnums.NotificationType type, string title, string message, TimeSpan expiration, 
-								   string urlImage = null);
+		Task ShowNotificationAsync(SystemControllerEnums.NotificationType type, string title, string message, TimeSpan expiration, string urlImage = null);
 
 		/// <summary>
 		///		Muestra una pregunta con tres posibles respuestas
@@ -38,5 +37,10 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Controllers
 		///		Muestra un cuadro de diálogo para introducir un texto multilínea
 		/// </summary>
 		Task<(SystemControllerEnums.ResultType result, string input)> ShowInputMultilineStringAsync(string message, string defaultValue = null);
+
+		/// <summary>
+		///		Muestra un cuadro de diálogo para introducir una contraseña
+		/// </summary>
+		Task<(SystemControllerEnums.ResultType result, string password)> ShowPasswordString(string message, string defaultValue = null);
 	}
 }

@@ -16,5 +16,4 @@
   <ItemGroup>
     <ProjectReference Include="..\BauMvvm.ViewModels\BauMvvm.ViewModels.csproj" />
   </ItemGroup>
-  <ItemGroup />
 </Project>

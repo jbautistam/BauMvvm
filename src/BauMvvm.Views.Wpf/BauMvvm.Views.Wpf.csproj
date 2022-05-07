@@ -29,4 +29,10 @@
     <Resource Include="Themes\Images\Info.png" />
     <Resource Include="Themes\Images\Warning.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Page Update="Forms\Dialogs\InputPasswordBoxView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>

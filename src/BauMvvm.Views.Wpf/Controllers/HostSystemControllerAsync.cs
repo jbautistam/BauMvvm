@@ -66,6 +66,14 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 		}
 
 		/// <summary>
+		///		Muestra un cuadro de diálogo para introducir una contraseña
+		/// </summary>
+		public virtual Task<(SystemControllerEnums.ResultType result, string password)> ShowPasswordString(string message, string defaultValue = null)
+		{
+			throw new NotImplementedException();
+		}
+
+		/// <summary>
 		///		Nombre de la aplicación
 		/// </summary>
 		public string ApplicationName { get; set; }

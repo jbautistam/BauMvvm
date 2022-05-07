@@ -51,6 +51,23 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 		}
 
 		/// <summary>
+		///		Muestra un cuadro de mensaje para introducir un texto
+		/// </summary>
+		public SystemControllerEnums.ResultType ShowPasswordString(string message, ref string password)
+		{
+			SystemControllerEnums.ResultType type;
+			Forms.Dialogs.InputPasswordBoxView view = new(this, message, password);
+
+				// Muestra el cuadro de diálogo
+				type = new HostDialogsController(ApplicationName, MainWindow).ShowDialog(MainWindow, view);
+				// Si se ha aceptado, recoge el texto
+				if (type == SystemControllerEnums.ResultType.Yes)
+					password = view.Password;
+				// Devuelve el resultado
+				return type;
+		}
+
+		/// <summary>
 		///		Muestra un cuadro de mensaje para introducir un texto multilínea
 		/// </summary>
 		public SystemControllerEnums.ResultType ShowInputMultilineString(string message, ref string input)
