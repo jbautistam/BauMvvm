@@ -39,7 +39,7 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 			catch (Exception exception)
 			{
 				System.Diagnostics.Debug.WriteLine(exception);
-				return SystemControllerEnums.ResultType.Yes;
+				return SystemControllerEnums.ResultType.No;
 			}
 		}
 
