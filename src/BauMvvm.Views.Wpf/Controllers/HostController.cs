@@ -9,6 +9,7 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 	/// </summary>
 	public class HostController : IHostController
 	{
+
 		public HostController(string applicationName, System.Windows.Window mainWindow)
 		{
 			DialogsController = new HostDialogsController(applicationName, mainWindow);
