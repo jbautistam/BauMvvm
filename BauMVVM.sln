@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BauMvvm.ViewModels", "src\B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BauMvvm.Views", "src\BauMvvm.Views\BauMvvm.Views.csproj", "{FFA90CCE-8C07-4A0F-A90C-3ED1B7B81E9C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{E35E5765-0F1D-481B-942C-7BA409937876}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BauMvvm.Views.Wpf", "src\BauMvvm.Views.Wpf\BauMvvm.Views.Wpf.csproj", "{C818BF3E-0AF2-4AC7-B900-267C36EFD39C}"
 EndProject
 Global
