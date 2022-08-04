@@ -83,7 +83,7 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 			// Obtiene el directorio predeterminado
 			if (string.IsNullOrWhiteSpace(defaultPath))
 			{
-				if (string.IsNullOrWhiteSpace(LastPathSelected))
+				if (!string.IsNullOrWhiteSpace(LastPathSelected))
 					defaultPath = LastPathSelected;
 				else
 					defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
