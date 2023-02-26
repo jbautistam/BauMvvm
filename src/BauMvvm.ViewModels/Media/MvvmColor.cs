@@ -39,6 +39,22 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Media
 		}
 
 		/// <summary>
+		///		Convierte un color a una cadena RRGGBBAA
+		/// </summary>
+		public string ToStringRgba()
+		{
+			return $"{R:X2}{G:X2}{B:X2}{A:X2}";
+		}
+
+		/// <summary>
+		///		Convierte un color a una cadena RRGGBB
+		/// </summary>
+		public string ToStringRgb()
+		{
+			return $"{R:X2}{G:X2}{B:X2}";
+		}
+		
+		/// <summary>
 		///		Convierte una cadena en hexadecimal a byte
 		/// </summary>
 		private byte ConvertToByte(string hexa, byte defaultValue)

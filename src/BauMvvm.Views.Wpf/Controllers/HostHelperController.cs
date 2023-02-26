@@ -10,7 +10,6 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 	/// </summary>
 	public class HostHelperController
 	{
-
 		public HostHelperController(Window mainWindow)
 		{
 			MainWindow = mainWindow;
@@ -22,7 +21,7 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 		public SystemControllerEnums.ResultType ShowDialog(Window owner, Window view, WindowStyle style = WindowStyle.ToolWindow)
 		{ 
 			// Si no se le ha pasado una ventana propietario, le asigna una
-			if (owner == null)
+			if (owner is null)
 				owner = MainWindow;
 			// Muestra el formulario activo
 			view.Owner = owner;
@@ -45,6 +44,33 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 		}
 
 		/// <summary>
+		///		Muestra una ventana no modal
+		/// </summary>
+		public void ShowNoModal(Window owner, Window view, WindowStyle style = WindowStyle.ToolWindow)
+		{
+			// Si no se le ha pasado una ventana propietario, le asigna una
+			if (owner is null)
+				owner = MainWindow;
+			// Muestra el formulario activo
+			view.Owner = owner;
+			view.ShowActivated = true;
+			view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+			view.WindowStyle = style;
+			view.ShowInTaskbar = false;
+			if (style == WindowStyle.ToolWindow)
+				view.ResizeMode = ResizeMode.NoResize;
+			// Muestra el formulario y devuelve el resultado
+			try
+			{
+				view.Show();
+			}
+			catch (Exception exception)
+			{
+				System.Diagnostics.Debug.WriteLine(exception);
+			}
+		}
+
+		/// <summary>
 		///		Convierte el resultado de un cuadro de diálogo
 		/// </summary>
 		private SystemControllerEnums.ResultType ConvertDialogResult(bool? result)
@@ -56,6 +82,11 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Controllers
 			else
 				return SystemControllerEnums.ResultType.No;
 		}
+
+		/// <summary>
+		///		Aplicación principal
+		/// </summary>
+		public Application MainApp { get; }
 
 		/// <summary>
 		///		Ventana principal
