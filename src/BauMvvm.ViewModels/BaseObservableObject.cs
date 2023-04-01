@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using System.Threading;
 
 namespace Bau.Libraries.BauMvvm.ViewModels
 {
@@ -13,6 +14,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 		public event PropertyChangedEventHandler PropertyChanged;
 		// Variables privadas
 		private bool _isUpdated;
+		private SynchronizationContext _contextUi = SynchronizationContext.Current;
 
 		protected BaseObservableObject(bool changeUpdated = true)
 		{
@@ -53,6 +55,15 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 			}
 			else // ... los objetos son iguales y no se modifica el valor
 				return false;
+		}
+
+		/// <summary>
+		///		Ejecuta acciones dentro del contexto de sincronización
+		/// </summary>
+		protected void Dispatch(SendOrPostCallback action)
+		{
+			// Thread.CurrentThread.ExecutionContext.ExecutionContext.Send(action, new object());
+			_contextUi.Send(action, new object());
 		}
 
 		/// <summary>
