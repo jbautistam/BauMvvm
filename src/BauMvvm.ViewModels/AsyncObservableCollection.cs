@@ -13,7 +13,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels
 	public class AsyncObservableCollection<T> : ObservableCollection<T>
     {
         // Variables privadas
-        private SynchronizationContext _synchronizationContext = SynchronizationContext.Current;
+        private static SynchronizationContext _synchronizationContext = SynchronizationContext.Current;
 
         public AsyncObservableCollection() {}
 

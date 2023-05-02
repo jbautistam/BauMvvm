@@ -1,25 +1,24 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 
-namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems
+namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.Trees
 {
 	/// <summary>
 	///		ViewModel para un control de un elemento jerárquico
 	/// </summary>
-	public class ControlHierarchicalViewModel : ControlItemViewModel, IHierarchicalViewModel
+	public class ControlHierarchicalViewModel : ControlItemViewModel
 	{
 		// Variables privadas
 		private bool _isExpanded;
-		private ObservableCollection<IHierarchicalViewModel> _children;
+		private AsyncObservableCollection<ControlHierarchicalViewModel> _children;
 
-		protected ControlHierarchicalViewModel(IHierarchicalViewModel parent, string text, object tag = null, 
+		protected ControlHierarchicalViewModel(ControlHierarchicalViewModel parent, string text, object tag = null, 
 											   bool lazyLoad = true, bool isBold = false, Media.MvvmColor foreground = null) 
 								: base(text, tag, isBold, foreground)
 		{
 			// Asigna las propiedades
 			Parent = parent;
 			LazyLoad = lazyLoad;
-			Children = new ObservableCollection<IHierarchicalViewModel>();
+			Children = new AsyncObservableCollection<ControlHierarchicalViewModel>();
 			// Si se va a tratar con una carga posterior, se añade un nodo vacío para que se muestre el signo + junto al nodo
 			if (lazyLoad)
 				Children.Add(new ControlHierarchicalViewModel(null, "-----", null, false));
@@ -50,7 +49,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems
 		/// <summary>
 		///		Elemento padre
 		/// </summary>
-		public IHierarchicalViewModel Parent { get; }
+		public ControlHierarchicalViewModel Parent { get; }
 
 		/// <summary>
 		///		Indica si el nodo está expandido o no
@@ -84,7 +83,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems
 		/// <summary>
 		///		Elementos hijo
 		/// </summary>
-		public ObservableCollection<IHierarchicalViewModel> Children 
+		public AsyncObservableCollection<ControlHierarchicalViewModel> Children 
 		{ 
 			get { return _children; }
 			set { CheckObject(ref _children, value); }

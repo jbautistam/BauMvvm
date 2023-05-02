@@ -14,7 +14,6 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms
 
 		public BaseFormViewModel(bool changeUpdated = true) : base(changeUpdated)
 		{
-			//ViewModelData = viewModel;
 			CloseCommand = new BaseCommand("Cerrar", parameter => Close(SystemControllerEnums.ResultType.No));
 			RefreshCommand = new BaseCommand("Actualizar",
 											 parameter => ExecuteAction(nameof(RefreshCommand), parameter),

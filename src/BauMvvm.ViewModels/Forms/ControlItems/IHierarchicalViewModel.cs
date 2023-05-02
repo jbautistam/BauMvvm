@@ -35,6 +35,6 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems
 		/// <summary>
 		///		Elementos hijo
 		/// </summary>
-		System.Collections.ObjectModel.ObservableCollection<IHierarchicalViewModel> Children { get; }
+		AsyncObservableCollection<IHierarchicalViewModel> Children { get; }
 	}
 }
