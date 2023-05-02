@@ -1,20 +1,17 @@
-﻿using System;
+﻿namespace Bau.Libraries.BauMvvm.ViewModels.Forms.Interfaces;
 
-namespace Bau.Libraries.BauMvvm.ViewModels.Forms.Interfaces
+/// <summary>
+///		Interface para el ViewModel de los paneles
+/// </summary>
+public interface IPaneViewModel : IFormViewModel
 {
 	/// <summary>
-	///		Interface para el ViewModel de los paneles
+	///		Comando para crear un nuevo elemento
 	/// </summary>
-	public interface IPaneViewModel : IFormViewModel
-	{
-		/// <summary>
-		///		Comando para crear un nuevo elemento
-		/// </summary>
-		BaseCommand NewCommand { get; }
+	BaseCommand NewCommand { get; }
 
-		/// <summary>
-		///		Comando para mostrar las propiedades de un elemento
-		/// </summary>
-		BaseCommand PropertiesCommand { get; }
-	}
+	/// <summary>
+	///		Comando para mostrar las propiedades de un elemento
+	/// </summary>
+	BaseCommand PropertiesCommand { get; }
 }

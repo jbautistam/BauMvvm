@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
-namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.Menus
+namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.Menus;
+
+/// <summary>
+///		Colección de <see cref="MenuItemViewModel"/>
+/// </summary>
+public class MenuItemViewModelCollection : ObservableCollection<MenuItemViewModel>
 {
 	/// <summary>
-	///		Colección de <see cref="MenuItemViewModel"/>
+	///		Añade un separador
 	/// </summary>
-	public class MenuItemViewModelCollection : ObservableCollection<MenuItemViewModel>
+	public void AddSeparator()
 	{
-		/// <summary>
-		///		Añade un separador
-		/// </summary>
-		public void AddSeparator()
-		{
-			Add(new MenuItemViewModel(null, null, null));
-		}
+		Add(new MenuItemViewModel(null, null, null));
+	}
 
-		/// <summary>
-		///		Añade un elemento a la colección
-		/// </summary>
-		public void Add(string text, string icon = null, BaseCommand command = null)
-		{
-			Add(new MenuItemViewModel(text, icon, command));
-		}
+	/// <summary>
+	///		Añade un elemento a la colección
+	/// </summary>
+	public void Add(string text, string? icon = null, BaseCommand? command = null)
+	{
+		Add(new MenuItemViewModel(text, icon, command));
 	}
 }

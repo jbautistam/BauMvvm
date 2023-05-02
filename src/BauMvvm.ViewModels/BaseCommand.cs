@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Bau.Libraries.BauMvvm.ViewModels;
@@ -10,30 +9,21 @@ namespace Bau.Libraries.BauMvvm.ViewModels;
 public class BaseCommand : ICommand
 { 
 	// Eventos públicos
-	public event EventHandler CanExecuteChanged;
+	public event EventHandler? CanExecuteChanged;
 	// Variables privadas
-	private readonly Action<object> _executeMethod = null;
-	private readonly Predicate<object> _canExecuteMethod = null;
+	private readonly Action<object?> _executeMethod;
+	private readonly Predicate<object?>? _canExecuteMethod = null;
 
-	public BaseCommand(Action<object> execute, Predicate<object> canExecute = null,
-					   INotifyPropertyChanged source = null, string propertyName = null) : this(null, execute, canExecute, source, propertyName)
+	public BaseCommand(Action<object?> execute, Predicate<object?>? canExecute = null)
 	{
-	}
-
-	public BaseCommand(string caption, Action<object> execute, Predicate<object> canExecute = null,
-					   INotifyPropertyChanged source = null, string propertyName = null)
-	{
-		Caption = caption;
 		_executeMethod = execute;
 		_canExecuteMethod = canExecute;
-		if (source != null)
-			AddListener(source, propertyName);
 	}
 
 	/// <summary>
 	///		Ejecuta un comando
 	/// </summary>
-	public void Execute(object parameter)
+	public void Execute(object? parameter)
 	{
 		_executeMethod?.Invoke(parameter);
 	}
@@ -41,9 +31,9 @@ public class BaseCommand : ICommand
 	/// <summary>
 	///		Comprueba si se puede ejecutar un comando
 	/// </summary>
-	public bool CanExecute(object parameter)
+	public bool CanExecute(object? parameter)
 	{
-		if (_canExecuteMethod != null)
+		if (_canExecuteMethod is not null)
 			return _canExecuteMethod(parameter);
 		else
 			return true;
@@ -52,7 +42,7 @@ public class BaseCommand : ICommand
 	/// <summary>
 	///		Añade un listener de eventos al comando para un nombre de propiedad
 	/// </summary>
-	public BaseCommand AddListener(INotifyPropertyChanged source, string propertyName)
+	public BaseCommand AddListener(INotifyPropertyChanged source, string? propertyName)
 	{ 
 		// Añade el manejador de eventos
 		source.PropertyChanged += (sender, args) => OnCanExecuteChanged();
@@ -74,9 +64,4 @@ public class BaseCommand : ICommand
 			System.Diagnostics.Debug.WriteLine(ex.Message);
 		}
 	}
-
-	/// <summary>
-	///		Título del comando
-	/// </summary>
-	public string Caption { get; }
 }

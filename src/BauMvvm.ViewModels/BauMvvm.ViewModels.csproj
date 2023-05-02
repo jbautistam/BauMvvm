@@ -26,6 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\ControlItems\ComboItems\ComboItem.cs" />
+    <Compile Remove="Forms\ControlItems\ComboItems\ComboItemsCollection.cs" />
     <Compile Remove="Forms\ControlItems\IHierarchicalViewModel.cs" />
   </ItemGroup>
 
