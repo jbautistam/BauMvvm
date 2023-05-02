@@ -8,20 +8,23 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.Trees
 	public class ControlHierarchicalViewModel : ControlItemViewModel
 	{
 		// Variables privadas
+		private string _type = string.Empty;
 		private bool _isExpanded;
 		private AsyncObservableCollection<ControlHierarchicalViewModel> _children;
 
-		protected ControlHierarchicalViewModel(ControlHierarchicalViewModel parent, string text, object tag = null, 
-											   bool lazyLoad = true, bool isBold = false, Media.MvvmColor foreground = null) 
+		public ControlHierarchicalViewModel(ControlHierarchicalViewModel parent, string text, string type, string icon, object tag = null, 
+											bool lazyLoad = true, bool isBold = false, Media.MvvmColor foreground = null) 
 								: base(text, tag, isBold, foreground)
 		{
 			// Asigna las propiedades
+			Type = type;
+			Icon = icon;
 			Parent = parent;
 			LazyLoad = lazyLoad;
 			Children = new AsyncObservableCollection<ControlHierarchicalViewModel>();
 			// Si se va a tratar con una carga posterior, se añade un nodo vacío para que se muestre el signo + junto al nodo
 			if (lazyLoad)
-				Children.Add(new ControlHierarchicalViewModel(null, "-----", null, false));
+				Children.Add(new ControlHierarchicalViewModel(null, "-----", string.Empty, string.Empty, null, false));
 		}
 
 		/// <summary>
@@ -47,9 +50,26 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.Trees
 		}
 
 		/// <summary>
+		///		Comprueba si dos nodos son iguales
+		/// </summary>
+		public virtual bool IsEquals(ControlHierarchicalViewModel node)
+		{
+			return Text.Equals(node.Text, StringComparison.CurrentCultureIgnoreCase) && Icon.Equals(node.Icon, StringComparison.CurrentCultureIgnoreCase);
+		}
+
+		/// <summary>
 		///		Elemento padre
 		/// </summary>
 		public ControlHierarchicalViewModel Parent { get; }
+
+		/// <summary>
+		///		Tipo del nodo
+		/// </summary>
+		public string Type
+		{
+			get { return _type; }
+			set { CheckProperty(ref _type, value); }
+		}
 
 		/// <summary>
 		///		Indica si el nodo está expandido o no
