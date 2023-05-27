@@ -11,6 +11,7 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
     <Compile Remove="Controllers\IHostViewsController.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -176,7 +176,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Media
 		public static MvvmColor BlanchedAlmond { get; } = new MvvmColor("ffcdebff");
 
 		/// <summary> Color Blue (R:0,G:0,B:255,A:255) </summary>
-		public static MvvmColor Blue { get; } = new MvvmColor("ffff0000");
+		public static MvvmColor Blue { get; } = new MvvmColor("ff0000ff");
 
 		/// <summary> Color BlueViolet (R:138,G:43,B:226,A:255) </summary>
 		public static MvvmColor BlueViolet { get; } = new MvvmColor("ffe22b8a");
