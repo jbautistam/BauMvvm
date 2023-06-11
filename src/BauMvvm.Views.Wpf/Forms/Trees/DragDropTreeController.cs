@@ -21,7 +21,7 @@ public class DragDropTreeController
 	/// <summary>
 	///		Inicia la operación de Drag & Drop
 	/// </summary>
-	public void InitDragOperation(TreeView tree, ControlHierarchicalViewModel node)
+	public void InitDragOperation(TreeView tree, ControlHierarchicalViewModel? node)
 	{
 		if (node != null)
 		{
@@ -41,9 +41,9 @@ public class DragDropTreeController
 	/// <summary>
 	///		Obtiene el nodo de archivo que se está arrastrando
 	/// </summary>
-	public ControlHierarchicalViewModel GetDragDropFileNode(IDataObject dataObject)
+	public ControlHierarchicalViewModel? GetDragDropFileNode(IDataObject dataObject)
 	{
-		ControlHierarchicalViewModel node = null;
+		ControlHierarchicalViewModel? node = null;
 
 			// Obtiene los datos que se están arrastrando
 			if (dataObject.GetDataPresent(KeyDataObject))

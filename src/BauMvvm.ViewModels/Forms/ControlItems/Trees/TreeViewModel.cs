@@ -123,7 +123,7 @@ public abstract class TreeViewModel : BaseObservableObject
 	/// <summary>
 	///		Obtiene el tipo de nodo seleccionado
 	/// </summary>
-	protected string? GetSelectedNodeType() => SelectedNode?.Type;
+	protected string GetSelectedNodeType() => SelectedNode?.Type ?? string.Empty;
 
 	/// <summary>
 	///		Contexto de sincronización

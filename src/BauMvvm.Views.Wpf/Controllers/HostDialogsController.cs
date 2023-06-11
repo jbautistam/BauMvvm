@@ -67,7 +67,7 @@ public class HostDialogsController: IHostDialogsController
 			// Muestra el cuadro de diálogo y devuelve los archivos
 			if (file.ShowDialog() ?? false)
 			{
-				LastPathSelected = System.IO.Path.GetDirectoryName(file.FileName) ?? string.Empty;
+				UpdateLastPathSelected(file.FileName, false);
 				return file.FileNames;
 			}
 			else
@@ -106,12 +106,27 @@ public class HostDialogsController: IHostDialogsController
 			// Muestra el cuadro de diálogo
 			if (file.ShowDialog() ?? false)
 			{
-				if (!string.IsNullOrWhiteSpace(System.IO.Path.GetDirectoryName(file.FileName)))
-					LastPathSelected = System.IO.Path.GetDirectoryName(file.FileName) ?? string.Empty;
+				// Modifica el último archivo seleccionado
+				UpdateLastPathSelected(file.FileName, false);
+				// Devuelve el nombre de archivo
 				return file.FileName;
 			}
 			else
 				return null;
+	}
+
+	/// <summary>
+	///		Modifica el último directorio seleccionado
+	/// </summary>
+	private void UpdateLastPathSelected(string? fileName, bool isFolder)
+	{
+		if (!string.IsNullOrWhiteSpace(fileName))
+		{
+			if (isFolder)
+				LastPathSelected = fileName;
+			else
+				LastPathSelected = System.IO.Path.GetDirectoryName(fileName) ?? string.Empty;
+		}
 	}
 
 	/// <summary>
@@ -147,8 +162,10 @@ public class HostDialogsController: IHostDialogsController
 			// Obtiene el directorio
 			if (type == SystemControllerEnums.ResultType.Yes)
 			{
+				// Guara el directorio
 				path = folder.SelectedPath;
-				LastPathSelected = path;
+				// Guarda el último archivo seleccionado
+				UpdateLastPathSelected(path, true);
 			}
 			// Devuelve el resultado
 			return type;

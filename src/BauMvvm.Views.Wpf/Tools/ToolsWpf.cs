@@ -13,15 +13,15 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Tools
 		/// <summary>
 		///		Obtener la ventana padre de un control
 		/// </summary>
-		public Window GetParentWindow(DependencyObject control)
+		public Window? GetParentWindow(DependencyObject control)
 		{
 			DependencyObject parent = VisualTreeHelper.GetParent(control);
 
 				// Busca recursivamente la ventana padre
-				if (parent == null)
+				if (parent is null)
 					return null;
-				else if (parent is Window)
-					return parent as Window;
+				else if (parent is Window window)
+					return window;
 				else
 					return GetParentWindow(parent);
 		}
@@ -29,7 +29,7 @@ namespace Bau.Libraries.BauMvvm.Views.Wpf.Tools
 		/// <summary>
 		///		Busca en el árbol visual el primer control de un tipo que sea padre del pasado como parámetro
 		/// </summary>
-		public TypeControl FindAncestor<TypeControl>(DependencyObject source) where TypeControl : DependencyObject
+		public TypeControl? FindAncestor<TypeControl>(DependencyObject source) where TypeControl : DependencyObject
 		{ 
 			// Recorre el árbol de controles buscando el primer control padre del tipo o hasta que se
 			// encuentra el nodo raíz

@@ -3,7 +3,7 @@
 /// <summary>
 ///		Controlador general para mostras cuadros de diálogo
 /// </summary>
-    public interface IHostDialogsController
+public interface IHostDialogsController
 {
 	/// <summary>
 	///		Abre el cuadro de diálogo de carga de archivos
