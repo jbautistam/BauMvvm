@@ -2,24 +2,16 @@
   <PropertyGroup>
 	  <TargetFramework>net7.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <RootNamespace>Bau.Libraries.BauMvvm.Views.Wpf</RootNamespace>
+    <RootNamespace>Bau.Libraries.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="AssemblyInfo.cs" />
-    <Compile Remove="Controllers\IHostViewsController.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Themes\Images\Accept.png" />
-    <None Remove="Themes\Images\Delete.png" />
-    <None Remove="Themes\Images\Info.png" />
-    <None Remove="Themes\Images\Warning.png" />
-  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
   </ItemGroup>
@@ -31,11 +23,5 @@
     <Resource Include="Themes\Images\Delete.png" />
     <Resource Include="Themes\Images\Info.png" />
     <Resource Include="Themes\Images\Warning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Forms\Dialogs\InputPasswordBoxView.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
 </Project>

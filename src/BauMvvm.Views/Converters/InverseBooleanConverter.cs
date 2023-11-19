@@ -1,28 +1,32 @@
-﻿using System;
-using System.Windows.Data;
+﻿using System.Windows.Data;
 
-namespace Bau.Libraries.BauMvvm.Views.Converters
+namespace Bau.Libraries.BauMvvm.Views.Converters;
+
+/// <summary>
+///		Conversor inverso para valores lógicos
+/// </summary>
+[ValueConversion(typeof(bool?), typeof(bool))]
+public class InverseBooleanConverter : IValueConverter
 {
 	/// <summary>
-	///		Conversor inverso para valores lógicos
+	///		Convierte un valor lógico en su inverso
 	/// </summary>
-	[ValueConversion(typeof(bool?), typeof(bool))]
-	public class InverseBooleanConverter : IValueConverter
+	public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
 	{
-		/// <summary>
-		///		Convierte un valor lógico en su inverso
-		/// </summary>
-		public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-		{ 
-			return !((value as bool?) ?? false);
-		}
+		if (value is bool valueBool)
+			return !valueBool;
+		else
+			return false;
+	}
 
-		/// <summary>
-		///		Convierte un valor al tipo inicial
-		/// </summary>
-		public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-		{	
-			return !(value as bool?);
-		}
+	/// <summary>
+	///		Convierte un valor al tipo inicial
+	/// </summary>
+	public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+	{	
+		if (value is bool valueBool)
+			return !valueBool;
+		else
+			return false;
 	}
 }

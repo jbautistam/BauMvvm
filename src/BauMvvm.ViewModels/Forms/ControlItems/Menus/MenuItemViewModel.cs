@@ -30,8 +30,5 @@ public class MenuItemViewModel
 	/// <summary>
 	///		Indica si el menú es un separador
 	/// </summary>
-	public bool IsSeparator
-	{
-		get { return string.IsNullOrEmpty(Text); }
-	}
+	public bool IsSeparator => string.IsNullOrEmpty(Text);
 }

@@ -1,92 +1,91 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Bau.Libraries.BauMvvm.Views.Wpf.Forms.Dialogs
+namespace Bau.Libraries.BauMvvm.Views.Wpf.Forms.Dialogs;
+
+/// <summary>
+///		Ventana para mostrar una contraseña
+/// </summary>
+public partial class InputPasswordBoxView : Window
 {
+	public InputPasswordBoxView(Controllers.HostSystemController controller, string message, string inputText)
+	{ 
+		// Inicializa los componentes
+		InitializeComponent();
+		// Inicializa las propiedades
+		Controller = controller;
+		Message = message;
+		Password = inputText;
+	}
+
 	/// <summary>
-	///		Ventana para mostrar una contraseña
+	///		Inicializa el formulario
 	/// </summary>
-	public partial class InputPasswordBoxView : Window
+	private void InitForm()
 	{
-		public InputPasswordBoxView(Controllers.HostSystemController controller, string message, string inputText)
+		lblMessage.Text = Message;
+		txtPassword.Password = Password;
+	}
+
+	/// <summary>
+	///		Comprueba los datos introducidos
+	/// </summary>
+	private bool ValidateData()
+	{
+		bool validate = false;
+
+			// Comprueba los datos
+			if (string.IsNullOrWhiteSpace(txtPassword.Password))
+				Controller.ShowMessage("Introduzca la contraseña");
+			else
+				validate = true;
+			// Devuelve el valor que indica si los datos son correctos
+			return validate;
+	}
+
+	/// <summary>
+	///		Graba los datos
+	/// </summary>
+	private void Save()
+	{
+		if (ValidateData())
 		{ 
-			// Inicializa los componentes
-			InitializeComponent();
-			// Inicializa las propiedades
-			Controller = controller;
-			Message = message;
-			Password = inputText;
+			// Asigna el texto
+			Password = txtPassword.Password;
+			// Cierra el formulario
+			DialogResult = true;
+			Close();
 		}
+	}
 
-		/// <summary>
-		///		Inicializa el formulario
-		/// </summary>
-		private void InitForm()
-		{
-			lblMessage.Text = Message;
-			txtPassword.Password = Password;
-		}
+	/// <summary>
+	///		Controlador principal
+	/// </summary>
+	public Controllers.HostSystemController Controller { get; }
 
-		/// <summary>
-		///		Comprueba los datos introducidos
-		/// </summary>
-		private bool ValidateData()
-		{
-			bool validate = false;
+	/// <summary>
+	///		Mensaje
+	/// </summary>
+	public string Message { get; set; }
 
-				// Comprueba los datos
-				if (string.IsNullOrWhiteSpace(txtPassword.Password))
-					Controller.ShowMessage("Introduzca la contraseña");
-				else
-					validate = true;
-				// Devuelve el valor que indica si los datos son correctos
-				return validate;
-		}
+	/// <summary>
+	///		Contraseña introducida por el usuario
+	/// </summary>
+	public string Password { get; set; }
 
-		/// <summary>
-		///		Graba los datos
-		/// </summary>
-		private void Save()
-		{
-			if (ValidateData())
-			{ 
-				// Asigna el texto
-				Password = txtPassword.Password;
-				// Cierra el formulario
-				DialogResult = true;
-				Close();
-			}
-		}
+	private void Window_Loaded(object sender, RoutedEventArgs e)
+	{
+		InitForm();
+	}
 
-		/// <summary>
-		///		Controlador principal
-		/// </summary>
-		public Controllers.HostSystemController Controller { get; }
+	private void cmdSave_Click(object sender, RoutedEventArgs e)
+	{
+		Save();
+	}
 
-		/// <summary>
-		///		Mensaje
-		/// </summary>
-		public string Message { get; set; }
-
-		/// <summary>
-		///		Contraseña introducida por el usuario
-		/// </summary>
-		public string Password { get; set; }
-
-		private void Window_Loaded(object sender, RoutedEventArgs e)
-		{
-			InitForm();
-		}
-
-		private void cmdSave_Click(object sender, RoutedEventArgs e)
-		{
-			Save();
-		}
-
-		private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-		{	
-			Password = (sender as PasswordBox)?.Password;
-		}
+	private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+	{	
+		if (sender is PasswordBox passwordBox)
+			Password = passwordBox.Password;
 	}
 }

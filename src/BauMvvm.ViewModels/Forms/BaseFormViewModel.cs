@@ -24,12 +24,12 @@ public abstract class BaseFormViewModel : BaseObservableObject, Interfaces.IForm
 	/// <summary>
 	///		Ejecuta una acción
 	/// </summary>
-	protected abstract void ExecuteAction(string action, object parameter);
+	protected abstract void ExecuteAction(string action, object? parameter);
 
 	/// <summary>
 	///		Comprueba si se puede ejecutar una acción
 	/// </summary>
-	protected abstract bool CanExecuteAction(string action, object parameter);
+	protected abstract bool CanExecuteAction(string action, object? parameter);
 
 	/// <summary>
 	///		Llama al evento de cierre de ventana
@@ -42,7 +42,7 @@ public abstract class BaseFormViewModel : BaseObservableObject, Interfaces.IForm
 	/// <summary>
 	///		Menús
 	/// </summary>
-	public ControlItems.Menus.MenuComposition MenuCompositionData { get; } = new ControlItems.Menus.MenuComposition();
+	public ControlItems.Menus.MenuComposition MenuCompositionData { get; } = new();
 
 	/// <summary>
 	///		Comando de cierre de la ventana

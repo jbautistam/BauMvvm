@@ -2,33 +2,15 @@
 
   <PropertyGroup>
 	  <TargetFramework>net7.0</TargetFramework>
-    <AssemblyName>BauMvvm.ViewModels</AssemblyName>
-    <RootNamespace>Bau.Libraries.BauMvvm.ViewModels</RootNamespace>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Bau.Libraries.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Dialogs\**" />
-    <Compile Remove="EventArguments\**" />
-    <Compile Remove="Views\**" />
-    <EmbeddedResource Remove="Dialogs\**" />
-    <EmbeddedResource Remove="EventArguments\**" />
-    <EmbeddedResource Remove="Views\**" />
-    <None Remove="Dialogs\**" />
-    <None Remove="EventArguments\**" />
-    <None Remove="Views\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Forms\ControlItems\ComboItems\ComboItem.cs" />
-    <Compile Remove="Forms\ControlItems\ComboItems\ComboItemsCollection.cs" />
-    <Compile Remove="Forms\ControlItems\IHierarchicalViewModel.cs" />
-  </ItemGroup>
-
 </Project>

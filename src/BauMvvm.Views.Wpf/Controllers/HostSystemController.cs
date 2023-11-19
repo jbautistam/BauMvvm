@@ -99,7 +99,7 @@ public class HostSystemController: IHostSystemController
 	/// <summary>
 	///		Muestra una notificación
 	/// </summary>
-	public virtual void ShowNotification(SystemControllerEnums.NotificationType type, string title, string message, TimeSpan expiration, string urlImage = null)
+	public virtual void ShowNotification(SystemControllerEnums.NotificationType type, string title, string message, TimeSpan expiration, string? urlImage = null)
 	{
 		new Notifications.NotificationsManager().ShowNotification(type, ApplicationName, title, message, expiration, urlImage);
 	}

@@ -17,7 +17,7 @@ public abstract class TreeViewModel : BaseObservableObject
 	/// <summary>
 	///		Carga los nodos
 	/// </summary>
-	public void Load()
+	public virtual void Load()
 	{
 		object state = new object();
 
@@ -48,7 +48,7 @@ public abstract class TreeViewModel : BaseObservableObject
 	/// <summary>
 	///		Obtiene recursivamente los elementos expandidos del árbol (para poder recuperarlos posteriormente y dejarlos abiertos de nuevo)
 	/// </summary>
-	private List<ControlHierarchicalViewModel> GetNodesExpanded(AsyncObservableCollection<ControlHierarchicalViewModel> nodes)
+	protected List<ControlHierarchicalViewModel> GetNodesExpanded(AsyncObservableCollection<ControlHierarchicalViewModel> nodes)
 	{
 		List<ControlHierarchicalViewModel> expanded = new List<ControlHierarchicalViewModel>();
 
@@ -91,9 +91,9 @@ public abstract class TreeViewModel : BaseObservableObject
 	/// <summary>
 	///		Expande los nodos que se le pasan en la colección <param name="nodesExpanded" />
 	/// </summary>
-	private void ExpandNodes(AsyncObservableCollection<ControlHierarchicalViewModel> nodes, List<ControlHierarchicalViewModel> nodesExpanded)
+	protected void ExpandNodes(AsyncObservableCollection<ControlHierarchicalViewModel> nodes, List<ControlHierarchicalViewModel> nodesExpanded)
 	{ 
-		if (nodes != null)
+		if (nodes is not null)
 			foreach (ControlHierarchicalViewModel node in nodes)
 				if (CheckIsExpanded(node, nodesExpanded))
 				{ 

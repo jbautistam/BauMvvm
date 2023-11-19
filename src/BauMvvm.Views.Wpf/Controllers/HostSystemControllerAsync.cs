@@ -34,7 +34,7 @@ public class HostSystemControllerAsync : IHostSystemControllerAsync
 	/// <summary>
 	///		Muestra un cuadro de mensaje para introducir un texto
 	/// </summary>
-	public Task<(SystemControllerEnums.ResultType result, string input)> ShowInputStringAsync(string message, string defaultValue = null)
+	public Task<(SystemControllerEnums.ResultType result, string input)> ShowInputStringAsync(string message, string? defaultValue = null)
 	{
 		throw new NotImplementedException();
 	}
@@ -42,7 +42,7 @@ public class HostSystemControllerAsync : IHostSystemControllerAsync
 	/// <summary>
 	///		Muestra un cuadro de mensaje para introducir un texto
 	/// </summary>
-	public Task<(SystemControllerEnums.ResultType result, string input)> ShowInputMultilineStringAsync(string message, string defaultValue = null)
+	public Task<(SystemControllerEnums.ResultType result, string input)> ShowInputMultilineStringAsync(string message, string? defaultValue = null)
 	{
 		throw new NotImplementedException();
 	}
@@ -58,7 +58,7 @@ public class HostSystemControllerAsync : IHostSystemControllerAsync
 	/// <summary>
 	///		Muestra una notificación
 	/// </summary>
-	public virtual Task ShowNotificationAsync(SystemControllerEnums.NotificationType type, string title, string message, TimeSpan expiration, string urlImage = null)
+	public virtual Task ShowNotificationAsync(SystemControllerEnums.NotificationType type, string title, string message, TimeSpan expiration, string? urlImage = null)
 	{
 		throw new NotImplementedException();
 	}
@@ -66,7 +66,7 @@ public class HostSystemControllerAsync : IHostSystemControllerAsync
 	/// <summary>
 	///		Muestra un cuadro de diálogo para introducir una contraseña
 	/// </summary>
-	public virtual Task<(SystemControllerEnums.ResultType result, string password)> ShowPasswordString(string message, string defaultValue = null)
+	public virtual Task<(SystemControllerEnums.ResultType result, string password)> ShowPasswordString(string message, string? defaultValue = null)
 	{
 		throw new NotImplementedException();
 	}
