@@ -40,7 +40,7 @@ public abstract class BaseObservableObject : INotifyPropertyChanged
 	/// <summary>
 	///		Comprueba si se debe modificar un valor de una propiedad para un objeto
 	/// </summary>
-	public bool CheckObject<TypeData>(ref TypeData value, TypeData newValue, [CallerMemberName] string propertyName = default!)
+	public bool CheckObject<TypeData>(ref TypeData? value, TypeData newValue, [CallerMemberName] string propertyName = default!)
 	{
 		if (!ReferenceEquals(value, newValue))
 		{ 
