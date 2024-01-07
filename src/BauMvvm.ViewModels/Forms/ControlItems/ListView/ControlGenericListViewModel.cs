@@ -39,9 +39,44 @@ public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 	private void ExecuteAction(string action)
 	{
 		if (action.Equals(nameof(NewItemCommand), StringComparison.CurrentCultureIgnoreCase))
-			Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(action, default!));
-		else if (SelectedItem?.Tag is TypeData tag && tag != null)
-			Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(action, tag));
+			UpdateItem(default!);
+		else
+		{
+			TypeData? item = default!;
+
+				// Obtiene el elemento
+				if (SelectedItem?.Tag is TypeData tag)
+					item = tag;
+				else if (SelectedItem is TypeData tagSelected)
+					item = tagSelected;
+				// Modifica / borra el elemento
+				if (item is not null)
+				{
+					if (action.Equals(nameof(DeleteItemCommand), StringComparison.CurrentCultureIgnoreCase))
+						DeleteItem(item);
+					else
+						UpdateItem(item);
+				}
+		}
+	}
+
+	/// <summary>
+	///		Modifica un elemento (virtual, lanza el evento de modificación)
+	/// </summary>
+	protected virtual void UpdateItem(TypeData? item) 
+	{
+		if (item is null)
+			Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(NewItemCommand), default!));
+		else
+			Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(OpenItemCommand), item));
+	}
+
+	/// <summary>
+	///		Borra un elemento (virtual, lanza el evento de borrado)
+	/// </summary>
+	protected virtual void DeleteItem(TypeData item) 
+	{
+		Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(DeleteItemCommand), item));
 	}
 
 	/// <summary>
