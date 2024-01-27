@@ -33,7 +33,8 @@ public class AsyncObservableCollection<T> : ObservableCollection<T>
     /// </summary>
     private void RaiseCollectionChanged(object? param)
     {
-        base.OnCollectionChanged((NotifyCollectionChangedEventArgs) param);
+        if (param is NotifyCollectionChangedEventArgs parameter)
+            base.OnCollectionChanged(parameter);
     }
 
     /// <summary>
@@ -53,6 +54,7 @@ public class AsyncObservableCollection<T> : ObservableCollection<T>
     /// </summary>
     private void RaisePropertyChanged(object? param)
     {
-        base.OnPropertyChanged((PropertyChangedEventArgs) param);
+        if (param is PropertyChangedEventArgs parameter)
+            base.OnPropertyChanged(parameter);
     }
 }

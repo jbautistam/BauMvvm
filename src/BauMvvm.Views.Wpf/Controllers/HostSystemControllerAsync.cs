@@ -20,6 +20,7 @@ public class HostSystemControllerAsync : IHostSystemControllerAsync
 	/// </summary>
 	public async Task ShowMessageAsync(string message)
 	{
+		await Task.Delay(1);
 		throw new NotImplementedException();
 	}
 
@@ -28,6 +29,7 @@ public class HostSystemControllerAsync : IHostSystemControllerAsync
 	/// </summary>
 	public async Task<bool> ShowQuestionAsync(string message, string acceptTitle = "Aceptar", string cancelTitle = "Cancelar")
 	{
+		await Task.Delay(1);
 		throw new NotImplementedException();
 	}
 

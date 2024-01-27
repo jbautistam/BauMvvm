@@ -8,7 +8,7 @@ public class ControlItemViewModel : BaseObservableObject
 	// Variables privadas
 	private bool _isSelected, _isChecked, _isBold, _isItalic;
 	private string _text = string.Empty, _toolTipText = string.Empty, _icon = string.Empty;
-	private Media.MvvmColor _foreground = Media.MvvmColor.Black;
+	private Media.MvvmColor? _foreground = Media.MvvmColor.Black;
 
 	public ControlItemViewModel(string text, object? tag, bool isBold = false, Media.MvvmColor? foreground = null)
 	{
@@ -89,7 +89,7 @@ public class ControlItemViewModel : BaseObservableObject
 	/// <summary>
 	///		Color del texto
 	/// </summary>
-	public Media.MvvmColor Foreground 
+	public Media.MvvmColor? Foreground 
 	{
 		get { return _foreground; }
 		set { CheckObject(ref _foreground, value); }

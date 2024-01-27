@@ -62,7 +62,9 @@ public class ComboViewModel : BaseObservableObject
 		set
 		{
 			foreach (ControlItemViewModel item in Items)
-				if (item.Id == value.ToString())
+				if (value is null && string.IsNullOrWhiteSpace(item.Id))
+					SelectedItem = item;
+				else if (item.Id == value.ToString())
 					SelectedItem = item;
 		}
 	}
@@ -105,6 +107,31 @@ public class ComboViewModel : BaseObservableObject
 			foreach (ControlItemViewModel item in Items)
 				if (!string.IsNullOrEmpty(item.Text) && item.Text.Equals(value, StringComparison.CurrentCultureIgnoreCase))
 					SelectedItem = item;
+		}
+	}
+
+	/// <summary>
+	///		Indice del elemento seleccionado
+	/// </summary>
+	public int? SelectedIndex
+	{
+		get
+		{
+			if (SelectedItem is null || Items.Count == 0)
+				return null;
+			else
+				return Items.IndexOf(SelectedItem);
+		}
+		set
+		{
+			if (Items.Count < 1)
+				SelectedItem = null;
+			else if (value is null)
+				SelectedItem = Items[0];
+			else if (value < Items.Count)
+				SelectedItem = Items[value ?? 0];
+			else
+				SelectedItem = null;
 		}
 	}
 
