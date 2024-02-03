@@ -6,6 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+	  <Title>Bau.Libraries.BauMvvm.Views.Wpf</Title>
+	  <Description>WPF views for MVVM</Description>
+	  <PackageProjectUrl>https://github.com/jbautistam/BauMvvm</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/jbautistam/BauMvvm</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>

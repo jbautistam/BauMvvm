@@ -7,6 +7,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+	  <Title>Bau.Libraries.BauMvvm.ViewModels</Title>
+	  <Description>ViewModels for MVVM</Description>
+	  <PackageProjectUrl>https://github.com/jbautistam/BauMvvm</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/jbautistam/BauMvvm</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
