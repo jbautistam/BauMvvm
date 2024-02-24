@@ -149,26 +149,27 @@ public class HostDialogsController: IHostDialogsController
 	/// </summary>
 	public SystemControllerEnums.ResultType OpenDialogSelectPath(string pathSource, out string? path)
 	{
-		Ookii.Dialogs.Wpf.VistaFolderBrowserDialog folder = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
-		SystemControllerEnums.ResultType type;
+		Microsoft.Win32.OpenFolderDialog dialog = new();
+		SystemControllerEnums.ResultType resultType;
 
-			// Inicializa los valores de salida
+			// Inicializa los parámetros de salida
 			path = null;
-			// Asigna la carpeta inicial
-			folder.SelectedPath = GetDefaultPath(pathSource);
-			folder.ShowNewFolderButton = true;
-			// Muestra el diálogo
-			type = ConvertDialogResult(folder.ShowDialog());
-			// Obtiene el directorio
-			if (type == SystemControllerEnums.ResultType.Yes)
+			// Inicializa las propiedads
+			dialog.Multiselect = false;
+			dialog.Title = "Select a folder";
+			dialog.InitialDirectory = pathSource;
+			// Muestra el cuadro de diálogo
+			resultType = ConvertDialogResult(dialog.ShowDialog());
+			// Obtiene el resultado de salida
+			if (resultType == SystemControllerEnums.ResultType.Yes)
 			{
-				// Guara el directorio
-				path = folder.SelectedPath;
-				// Guarda el último archivo seleccionado
+				// Guarda el directorio de salida
+				path = dialog.FolderName;
+				// Guarda el último directorios seleccionado
 				UpdateLastPathSelected(path, true);
 			}
 			// Devuelve el resultado
-			return type;
+			return resultType;
 	}
 
 	/// <summary>
