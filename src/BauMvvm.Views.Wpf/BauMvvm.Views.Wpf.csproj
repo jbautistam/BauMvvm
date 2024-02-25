@@ -16,10 +16,6 @@
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BauMvvm.Views\BauMvvm.Views.csproj" />
   </ItemGroup>
