@@ -33,4 +33,32 @@ public class ControlItemCollectionViewModel<TypeData> : ObservableCollection<Typ
 				}
 		}
 	}
+
+	/// <summary>
+	///		Mueve un elemento al principio
+	/// </summary>
+	public void MoveToFirst(TypeData item)
+	{
+		if (item is not null)
+		{
+			// Borra el elemento de la lista
+			Items.Remove(item);
+			// y lo inserta al inicio
+			Items.Insert(0, item);
+		}
+	}
+
+	/// <summary>
+	///		Mueve un elemento al final
+	/// </summary>
+	public void MoveToLast(TypeData item)
+	{
+		if (item is not null)
+		{
+			// Borra el elemento de la lista
+			Items.Remove(item);
+			// y lo añade al final
+			Items.Add(item);
+		}
+	}
 }
