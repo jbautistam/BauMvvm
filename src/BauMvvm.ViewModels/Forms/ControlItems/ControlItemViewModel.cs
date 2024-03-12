@@ -69,7 +69,7 @@ public class ControlItemViewModel : BaseObservableObject
 	}
 
 	/// <summary>
-	///		Indica si el elemento está activo
+	///		Indica si el elemento está chequeado
 	/// </summary>
 	public bool IsChecked 
 	{

@@ -45,17 +45,22 @@ public class HostHelperController
 	/// <summary>
 	///		Muestra una ventana no modal
 	/// </summary>
-	public void ShowNoModal(Window owner, Window view, WindowStyle style = WindowStyle.ToolWindow)
+	public void ShowNoModal(Window owner, Window view, bool withoutParent, WindowStyle style = WindowStyle.ToolWindow)
 	{
 		// Si no se le ha pasado una ventana propietario, le asigna una
 		if (owner is null)
 			owner = MainWindow;
 		// Muestra el formulario activo
-		view.Owner = owner;
+		if (!withoutParent)
+		{
+			view.Owner = owner;
+			view.ShowInTaskbar = false;
+		}
+		else
+			view.ShowInTaskbar = true;
 		view.ShowActivated = true;
 		view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 		view.WindowStyle = style;
-		view.ShowInTaskbar = false;
 		if (style == WindowStyle.ToolWindow)
 			view.ResizeMode = ResizeMode.NoResize;
 		// Muestra el formulario y devuelve el resultado
