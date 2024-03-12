@@ -8,7 +8,7 @@ namespace Bau.Libraries.BauMvvm.Views.Converters;
 public class BoolToVisibilityConverter : IValueConverter
 {
 	/// <summary>
-	///		Convierte un valor boolean en un valor de FontWeight
+	///		Convierte un valor boolean en un valor de visibilidad
 	/// </summary>
 	public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
 	{ 
@@ -19,7 +19,7 @@ public class BoolToVisibilityConverter : IValueConverter
 	}
 
 	/// <summary>
-	///		Convierte un valor de FontWeight en un boolean
+	///		Convierte un valor de visibilidad en un boolean
 	/// </summary>
 	public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
 	{ 
