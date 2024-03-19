@@ -61,4 +61,9 @@ public class ControlItemCollectionViewModel<TypeData> : ObservableCollection<Typ
 			Items.Add(item);
 		}
 	}
+
+	/// <summary>
+	///		Elemento seleccionado
+	/// </summary>
+	public TypeData? SelectedItem  { get; set; }
 }
