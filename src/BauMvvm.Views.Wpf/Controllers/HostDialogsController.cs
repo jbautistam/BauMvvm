@@ -56,7 +56,7 @@ public class HostDialogsController: IHostDialogsController
 	/// </summary>
 	private string[]? OpenDialogLoadFilesMultiple(bool multiple, string? defaultPath, string filter, string? defaultFileName, string? defaultExtension)
 	{
-		Microsoft.Win32.OpenFileDialog file = new Microsoft.Win32.OpenFileDialog();
+		Microsoft.Win32.OpenFileDialog file = new();
 
 			// Asigna las propiedades
 			file.Multiselect = multiple;
@@ -77,7 +77,7 @@ public class HostDialogsController: IHostDialogsController
 	/// <summary>
 	///		Obtiene el directorio predeterminado (si no se le ha pasado nada, obtiene el último directorio seleccionado)
 	/// </summary>
-	private string GetDefaultPath(string? defaultPath)
+	private string? GetDefaultPath(string? defaultPath)
 	{
 		// Obtiene el directorio predeterminado
 		if (string.IsNullOrWhiteSpace(defaultPath))
@@ -87,6 +87,8 @@ public class HostDialogsController: IHostDialogsController
 			else
 				defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 		}
+		else if (File.Exists(defaultPath))
+			defaultPath = Path.GetDirectoryName(defaultPath);
 		// Devuelve el directorio predeterminado
 		return defaultPath;
 	}
@@ -94,13 +96,14 @@ public class HostDialogsController: IHostDialogsController
 	/// <summary>
 	///		Abre el cuadro de diálogo de grabación de archivos
 	/// </summary>
-	public string? OpenDialogSave(string? defaultPath, string filter, string? defaultFileName = null, string? defaultExtension = null)
+	public string? OpenDialogSave(string? fileName, string filter, string? defaultFileName = null, string? defaultExtension = null)
 	{
-		Microsoft.Win32.SaveFileDialog file = new Microsoft.Win32.SaveFileDialog();
+		Microsoft.Win32.SaveFileDialog file = new();
 
 			// Asigna las propiedades
-			file.InitialDirectory = GetDefaultPath(defaultPath);
-			file.FileName = defaultFileName;
+			file.InitialDirectory = GetDefaultPath(fileName);
+			if (!string.IsNullOrWhiteSpace(defaultFileName))
+				file.FileName = Path.GetFileName(defaultFileName);
 			file.DefaultExt = defaultExtension;
 			file.Filter = filter;
 			// Muestra el cuadro de diálogo
@@ -125,7 +128,7 @@ public class HostDialogsController: IHostDialogsController
 			if (isFolder)
 				LastPathSelected = fileName;
 			else
-				LastPathSelected = System.IO.Path.GetDirectoryName(fileName) ?? string.Empty;
+				LastPathSelected = Path.GetDirectoryName(fileName) ?? string.Empty;
 		}
 	}
 

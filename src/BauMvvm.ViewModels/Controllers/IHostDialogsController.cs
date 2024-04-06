@@ -18,7 +18,7 @@ public interface IHostDialogsController
 	/// <summary>
 	///		Abre el cuadro de diálogo de grabación de archivos
 	/// </summary>
-	string? OpenDialogSave(string? defaultPath, string filter, string? defaultFileName = null, string? defaultExtension = null);
+	string? OpenDialogSave(string? fileName, string filter, string? defaultFileName = null, string? defaultExtension = null);
 
 	/// <summary>
 	///		Abre el cuadro de diálogo de selección de un directorio
