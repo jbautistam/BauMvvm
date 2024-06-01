@@ -117,7 +117,7 @@ public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 	/// </summary>
 	public ControlItemViewModel Add(string text, TypeData? tag, bool selected = false, bool isBold = false, Media.MvvmColor? foreground = null)
 	{
-		ControlItemViewModel newItem = new ControlItemViewModel(text, tag, isBold, foreground);
+		ControlItemViewModel newItem = new(text, tag, isBold, foreground);
 
 			// Añade el elemento a la colección
 			Add(newItem, selected);

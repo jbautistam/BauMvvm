@@ -3,7 +3,7 @@
 /// <summary>
 ///		Clase base para los ViewModel para ventanas de diálogo básicas
 /// </summary>
-public abstract class BaseDialogViewModel : BaseObservableObject
+public abstract class BaseDialogViewModel : BaseObservableObject, Interfaces.IDialogViewModel
 { 
 	// Eventos públicos
 	public event EventHandler<EventArguments.EventCloseArgs>? Close;
