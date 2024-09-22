@@ -1,7 +1,7 @@
 ﻿namespace Bau.Libraries.BauMvvm.ViewModels.Controllers;
 
 /// <summary>
-///		Controlador general para mostras cuadros de diálogo
+///		Controlador general para mostrar cuadros de diálogo
 /// </summary>
 public interface IHostDialogsController
 {
@@ -24,6 +24,11 @@ public interface IHostDialogsController
 	///		Abre el cuadro de diálogo de selección de un directorio
 	/// </summary>
 	SystemControllerEnums.ResultType OpenDialogSelectPath(string pathource, out string? path);
+
+	/// <summary>
+	///		Abre el cuadro de diálogo de selección de un directorio
+	/// </summary>
+	public string? OpenDialogSelectPath(string? pathSource);
 
 	/// <summary>
 	///		Ultimo directorio seleccionado

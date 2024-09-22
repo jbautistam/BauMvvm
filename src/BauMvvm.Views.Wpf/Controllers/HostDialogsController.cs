@@ -150,6 +150,17 @@ public class HostDialogsController: IHostDialogsController
 	/// <summary>
 	///		Abre el cuadro de diálogo de selección de un directorio
 	/// </summary>
+	public string? OpenDialogSelectPath(string? pathSource)
+	{
+		if (OpenDialogSelectPath(LastPathSelected, out string? folder) == SystemControllerEnums.ResultType.Yes)
+			return folder;
+		else
+			return null;
+	}
+
+	/// <summary>
+	///		Abre el cuadro de diálogo de selección de un directorio
+	/// </summary>
 	public SystemControllerEnums.ResultType OpenDialogSelectPath(string pathSource, out string? path)
 	{
 		Microsoft.Win32.OpenFolderDialog dialog = new();
