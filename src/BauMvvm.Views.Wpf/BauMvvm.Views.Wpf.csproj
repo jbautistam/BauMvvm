@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	  <TargetFramework>net8.0-windows7.0</TargetFramework>
+	  <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace>Bau.Libraries.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -24,8 +24,5 @@
     <Resource Include="Themes\Images\Delete.png" />
     <Resource Include="Themes\Images\Info.png" />
     <Resource Include="Themes\Images\Warning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Using Include="System.IO" />
   </ItemGroup>
 </Project>
