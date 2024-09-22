@@ -1,28 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-	  <TargetFramework>net8.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <RootNamespace>Bau.Libraries.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-	  <Title>Bau.Libraries.BauMvvm.Views.Wpf</Title>
-	  <Description>WPF views for MVVM</Description>
-	  <PackageProjectUrl>https://github.com/jbautistam/BauMvvm</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/jbautistam/BauMvvm</RepositoryUrl>
-	  <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DebugType>none</DebugType>
-    <DebugSymbols>false</DebugSymbols>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BauMvvm.Views\BauMvvm.Views.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Themes\Images\Accept.png" />
-    <Resource Include="Themes\Images\Delete.png" />
-    <Resource Include="Themes\Images\Info.png" />
-    <Resource Include="Themes\Images\Warning.png" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+		<RootNamespace>Bau.Libraries.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<Title>Bau.Libraries.BauMvvm.Views.Wpf</Title>
+		<Description>WPF views for MVVM</Description>
+		<PackageProjectUrl>https://github.com/jbautistam/BauMvvm</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/jbautistam/BauMvvm</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\BauMvvm.Views\BauMvvm.Views.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Themes\Images\Accept.png" />
+		<Resource Include="Themes\Images\Delete.png" />
+		<Resource Include="Themes\Images\Info.png" />
+		<Resource Include="Themes\Images\Warning.png" />
+	</ItemGroup>
 </Project>

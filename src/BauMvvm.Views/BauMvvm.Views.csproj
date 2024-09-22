@@ -1,20 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-	  <Title>Bau.Libraries.BauMvvm.Views</Title>
-	  <Description>View for MVVM</Description>
-	  <PackageProjectUrl>https://github.com/jbautistam/BauMvvm</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/jbautistam/BauMvvm</RepositoryUrl>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DebugType>none</DebugType>
-    <DebugSymbols>false</DebugSymbols>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BauMvvm.ViewModels\BauMvvm.ViewModels.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+		<UseWPF>true</UseWPF>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<Title>Bau.Libraries.BauMvvm.Views</Title>
+		<Description>View for MVVM</Description>
+		<PackageProjectUrl>https://github.com/jbautistam/BauMvvm</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/jbautistam/BauMvvm</RepositoryUrl>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\BauMvvm.ViewModels\BauMvvm.ViewModels.csproj" />
+	</ItemGroup>
 </Project>
