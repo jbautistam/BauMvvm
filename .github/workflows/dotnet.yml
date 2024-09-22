@@ -1,0 +1,52 @@
+name: Publish package
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0.x'
+          source-url: https://api.nuget.org/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_TOKEN}}
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build BauMvvm.ViewModels
+        run: dotnet build --configuration Release src/BauMvvm.ViewModels/BauMvvm.ViewModels.csproj
+
+      - name: Create the package BauMvvm.ViewModels
+        run: dotnet pack --configuration Release src/BauMvvm.ViewModels/BauMvvm.ViewModels.csproj -p:PackageVersion=1.1.$GITHUB_RUN_NUMBER
+
+      - name: Publish the package BauMvvm.ViewModels to Nuget
+        run: dotnet nuget push src/bin/Release/*.nupkg --no-symbols --api-key ${{secrets.NUGET_TOKEN}}
+
+      - name: Build BauMvvm.Views
+        run: dotnet build --configuration Release src/BauMvvm.Views/BauMvvm.Views.csproj
+
+      - name: Create the package BauMvvm.Views
+        run: dotnet pack --configuration Release src/BauMvvm.Views/BauMvvm.Views.csproj -p:PackageVersion=1.1.$GITHUB_RUN_NUMBER
+
+      - name: Publish the package BauMvvm.Views to Nuget
+        run: dotnet nuget push src/bin/Release/*.nupkg --no-symbols --api-key ${{secrets.NUGET_TOKEN}}
+
+      - name: Build BauMvvm.Views.Wpf
+        run: dotnet build --configuration Release src/BauMvvm.Views.Wpf/BauMvvm.Views.Wpf.csproj
+
+      - name: Create the package BauMvvm.Views.Wpf
+        run: dotnet pack --configuration Release src/BauMvvm.Views.Wpf/BauMvvm.Views.Wpf.csproj -p:PackageVersion=1.1.$GITHUB_RUN_NUMBER
+
+      - name: Publish the package BauMvvm.Views.Wpf to Nuget
+        run: dotnet nuget push src/bin/Release/*.nupkg --no-symbols --api-key ${{secrets.NUGET_TOKEN}}
