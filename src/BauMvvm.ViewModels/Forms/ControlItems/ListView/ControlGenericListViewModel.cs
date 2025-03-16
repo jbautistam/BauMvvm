@@ -10,7 +10,7 @@ public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 	// Eventos públicos
 	public event EventHandler<EventArguments.CommandEventArgs<TypeData>>? Execute;
 	// Variables privadas
-	private ObservableCollection<ControlItemViewModel> _items = new();
+	private System.Collections.ObjectModel.ObservableCollection<ControlItemViewModel> _items = new();
 	private ControlItemViewModel? _selectedItem;
 	private bool _enabled;
 
@@ -225,7 +225,7 @@ public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 	/// <summary>
 	///		Elementos del control
 	/// </summary>
-	public ObservableCollection<ControlItemViewModel> Items
+	public System.Collections.ObjectModel.ObservableCollection<ControlItemViewModel> Items
 	{
 		get { return _items; }
 		set { CheckObject(ref _items, value); }

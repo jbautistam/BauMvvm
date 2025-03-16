@@ -5,7 +5,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems;
 /// <summary>
 ///		Colección de <see cref="ControlItemViewModel"/>
 /// </summary>
-public class ControlItemCollectionViewModel<TypeData> : ObservableCollection<TypeData>
+public class ControlItemCollectionViewModel<TypeData> : System.Collections.ObjectModel.ObservableCollection<TypeData>
 {
 	/// <summary>
 	///		Sube / baja un elemento de la lista

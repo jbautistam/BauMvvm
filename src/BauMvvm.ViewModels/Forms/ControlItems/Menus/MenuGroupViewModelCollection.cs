@@ -5,7 +5,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.Menus;
 /// <summary>
 ///		Colección de <see cref="MenuGroupViewModel"/>
 /// </summary>
-public class MenuGroupViewModelCollection : ObservableCollection<MenuGroupViewModel>
+public class MenuGroupViewModelCollection : System.Collections.ObjectModel.ObservableCollection<MenuGroupViewModel>
 {
 	/// <summary>
 	///		Añade un elemento a la colección

@@ -8,7 +8,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.ListView;
 public abstract class ControlGeneralListViewModel<TypeData> : BaseObservableObject
 {
 	// Variables privadas
-	private ObservableCollection<TypeData> _items = [];
+	private System.Collections.ObjectModel.ObservableCollection<TypeData> _items = [];
 	private TypeData? _selectedItem;
 	private bool _enabled;
 
@@ -59,7 +59,7 @@ public abstract class ControlGeneralListViewModel<TypeData> : BaseObservableObje
 	/// <summary>
 	///		Elementos del control
 	/// </summary>
-	public ObservableCollection<TypeData> Items
+	public System.Collections.ObjectModel.ObservableCollection<TypeData> Items
 	{
 		get { return _items; }
 		set { CheckObject(ref _items, value); }

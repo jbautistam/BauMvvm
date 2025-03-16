@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.ComponentModel;
 
 namespace Bau.Libraries.BauMvvm.ViewModels;
@@ -7,7 +6,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels;
 /// <summary>
 ///     Colección asíncrona de objetos observables
 /// </summary>
-public class AsyncObservableCollection<T> : ObservableCollection<T>
+public class AsyncObservableCollection<T> : System.Collections.ObjectModel.ObservableCollection<T>
 {
     // Variables privadas
     private static SynchronizationContext? _synchronizationContext = SynchronizationContext.Current;

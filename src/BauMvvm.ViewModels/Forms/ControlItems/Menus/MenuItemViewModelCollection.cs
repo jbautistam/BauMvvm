@@ -5,7 +5,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.Menus;
 /// <summary>
 ///		Colección de <see cref="MenuItemViewModel"/>
 /// </summary>
-public class MenuItemViewModelCollection : ObservableCollection<MenuItemViewModel>
+public class MenuItemViewModelCollection : System.Collections.ObjectModel.ObservableCollection<MenuItemViewModel>
 {
 	/// <summary>
 	///		Añade un separador
