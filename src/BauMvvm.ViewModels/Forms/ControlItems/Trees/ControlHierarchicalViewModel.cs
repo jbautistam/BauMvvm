@@ -103,6 +103,6 @@ public class ControlHierarchicalViewModel : ControlItemViewModel
 	public AsyncObservableCollection<ControlHierarchicalViewModel> Children 
 	{ 
 		get { return _children; }
-		set { CheckObject(ref _children, value); }
+		set { CheckObject(ref _children!, value); }
 	}
 }
