@@ -50,7 +50,7 @@ public abstract class TreeViewModel : BaseObservableObject
 	/// </summary>
 	protected List<ControlHierarchicalViewModel> GetNodesExpanded(AsyncObservableCollection<ControlHierarchicalViewModel> nodes)
 	{
-		List<ControlHierarchicalViewModel> expanded = new List<ControlHierarchicalViewModel>();
+		List<ControlHierarchicalViewModel> expanded = [];
 
 			// Recorre los nodos obteniendo los seleccionados
 			foreach (ControlHierarchicalViewModel node in nodes)
@@ -136,7 +136,7 @@ public abstract class TreeViewModel : BaseObservableObject
 	public AsyncObservableCollection<ControlHierarchicalViewModel> Children
 	{
 		get { return _children; }
-		set { CheckObject(ref _children, value); }
+		set { CheckObject(ref _children!, value); }
 	}
 
 	/// <summary>

@@ -6,14 +6,14 @@ namespace Bau.Libraries.BauMvvm.ViewModels;
 /// <summary>
 ///     Colección asíncrona de objetos observables
 /// </summary>
-public class AsyncObservableCollection<T> : System.Collections.ObjectModel.ObservableCollection<T>
+public class AsyncObservableCollection<TypeData> : System.Collections.ObjectModel.ObservableCollection<TypeData>
 {
     // Variables privadas
     private static SynchronizationContext? _synchronizationContext = SynchronizationContext.Current;
 
     public AsyncObservableCollection() {}
 
-    public AsyncObservableCollection(IEnumerable<T> list) : base(list) {}
+    public AsyncObservableCollection(IEnumerable<TypeData> list) : base(list) {}
 
     /// <summary>
     ///     Cuando se modifica la colección, si estamos en el mismo contexto, lanzamos el evento base, si no, saltamos de contexto
@@ -56,4 +56,13 @@ public class AsyncObservableCollection<T> : System.Collections.ObjectModel.Obser
         if (param is PropertyChangedEventArgs parameter)
             base.OnPropertyChanged(parameter);
     }
+
+    /// <summary>
+    ///     Añade una serie de elementos a la colección
+    /// </summary>
+	public void AddRange(List<TypeData> items)
+	{
+		foreach (TypeData item in items)
+            Add(item);
+	}
 }
