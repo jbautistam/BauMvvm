@@ -66,7 +66,7 @@ public abstract class BaseObservableObject : INotifyPropertyChanged
 	/// <summary>
 	///		Comprueba si se debe modificar un valor de una propiedad para un objeto sin marcar el objeto como modificado
 	/// </summary>
-	protected bool CheckObjectNoEvent<TypeData>(ref TypeData? value, TypeData? newValue, [CallerMemberName] string propertyName = default!)
+	protected bool CheckObjectNoUpdate<TypeData>(ref TypeData? value, TypeData? newValue, [CallerMemberName] string propertyName = default!)
 	{
 		return CheckObject(ref value, newValue, false, propertyName);
 	}
@@ -103,7 +103,7 @@ public abstract class BaseObservableObject : INotifyPropertyChanged
 	{ 
 		// Indica que se ha modificado
 		//! Antes de lanzar el evento para darle la oportunidad a los objetos hijo a cambiar el valor de IsUpdated = false
-		if (changeUpdated)
+		if (changeUpdated && ChangeUpdated)
 			IsUpdated = true;
 		// Lanza el evento
 		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
