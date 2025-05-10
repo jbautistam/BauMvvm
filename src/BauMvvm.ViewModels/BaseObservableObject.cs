@@ -22,14 +22,14 @@ public abstract class BaseObservableObject : INotifyPropertyChanged
 	/// <summary>
 	///		Comprueba si se debe modificar un valor de una propiedad
 	/// </summary>
-	protected bool CheckProperty<TypeData>(ref TypeData value, TypeData newValue, [CallerMemberName] string propertyName = default!)
+	protected bool CheckProperty<TypeData>(ref TypeData value, TypeData newValue, bool changeUpdated = true, [CallerMemberName] string propertyName = default!)
 	{
 		if (!Equals(value, newValue))
 		{ 
 			// Cambia el valor
 			value = newValue;
 			// Lanza el evento
-			OnPropertyChanged(propertyName);
+			OnPropertyChanged(changeUpdated, propertyName);
 			// Devuelve el valor que indica que se ha modificado
 			return true;
 		}
@@ -38,21 +38,37 @@ public abstract class BaseObservableObject : INotifyPropertyChanged
 	}
 
 	/// <summary>
+	///		Modificar el valor de una propiedad sin marcar el objeto como modificado
+	/// </summary>
+	protected bool CheckPropertyNoUpdate<TypeData>(ref TypeData value, TypeData newValue, [CallerMemberName] string propertyName = default!)
+	{
+		return CheckProperty(ref value, newValue, false, propertyName);
+	}
+
+	/// <summary>
 	///		Comprueba si se debe modificar un valor de una propiedad para un objeto
 	/// </summary>
-	public bool CheckObject<TypeData>(ref TypeData? value, TypeData? newValue, [CallerMemberName] string propertyName = default!)
+	protected bool CheckObject<TypeData>(ref TypeData? value, TypeData? newValue, bool changeUpdated = true, [CallerMemberName] string propertyName = default!)
 	{
 		if (!ReferenceEquals(value, newValue))
 		{ 
 			// Cambia el valor
 			value = newValue;
 			// Lanza el evento
-			OnPropertyChanged(propertyName);
+			OnPropertyChanged(changeUpdated, propertyName);
 			// Devuelve el valor que indica que se ha modificado
 			return true;
 		}
 		else // ... los objetos son iguales y no se modifica el valor
 			return false;
+	}
+
+	/// <summary>
+	///		Comprueba si se debe modificar un valor de una propiedad para un objeto sin marcar el objeto como modificado
+	/// </summary>
+	protected bool CheckObjectNoEvent<TypeData>(ref TypeData? value, TypeData? newValue, [CallerMemberName] string propertyName = default!)
+	{
+		return CheckObject(ref value, newValue, false, propertyName);
 	}
 
 	/// <summary>
@@ -64,21 +80,21 @@ public abstract class BaseObservableObject : INotifyPropertyChanged
 		_contextUi?.Send(action, new object());
 	}
 
-	/// <summary>
-	///		Lanza el evento de cambio de propiedad
-	/// </summary>
-	internal void RaiseEventPropertyChanged(string propertyName)
-	{
-		OnPropertyChanged(propertyName);
-	}
+	///// <summary>
+	/////		Lanza el evento de cambio de propiedad
+	///// </summary>
+	//internal void RaiseEventPropertyChanged(string propertyName)
+	//{
+	//	OnPropertyChanged(propertyName);
+	//}
 
-	/// <summary>
-	///		Lanza el evento <see cref="PropertyChanged"/>
-	/// </summary>
-	protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = default!)
-	{
-		OnPropertyChanged(ChangeUpdated, propertyName);
-	}
+	///// <summary>
+	/////		Lanza el evento <see cref="PropertyChanged"/>
+	///// </summary>
+	//protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = default!)
+	//{
+	//	OnPropertyChanged(ChangeUpdated, propertyName);
+	//}
 
 	/// <summary>
 	///		Lanza el evento <see cref="PropertyChanged"/>
