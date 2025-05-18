@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.ListView;
+﻿namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.ListView;
 
 /// <summary>
 ///		Colección de <see cref="ControlItemViewModel"/>
@@ -8,7 +6,7 @@ namespace Bau.Libraries.BauMvvm.ViewModels.Forms.ControlItems.ListView;
 public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 {
 	// Eventos públicos
-	public event EventHandler<EventArguments.CommandEventArgs<TypeData>>? Execute;
+	public event EventHandler<EventArguments.CommandEventArgs<TypeData>>? ExecutedAction;
 	// Variables privadas
 	private System.Collections.ObjectModel.ObservableCollection<ControlItemViewModel> _items = new();
 	private ControlItemViewModel? _selectedItem;
@@ -66,9 +64,9 @@ public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 	protected virtual void UpdateItem(TypeData? item) 
 	{
 		if (item is null)
-			Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(NewItemCommand), default!));
+			ExecutedAction?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(NewItemCommand), default!));
 		else
-			Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(OpenItemCommand), item));
+			ExecutedAction?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(OpenItemCommand), item));
 	}
 
 	/// <summary>
@@ -76,7 +74,7 @@ public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 	/// </summary>
 	protected virtual void DeleteItem(TypeData item) 
 	{
-		Execute?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(DeleteItemCommand), item));
+		ExecutedAction?.Invoke(this, new EventArguments.CommandEventArgs<TypeData>(nameof(DeleteItemCommand), item));
 	}
 
 	/// <summary>
@@ -228,7 +226,7 @@ public class ControlGenericListViewModel<TypeData> : BaseObservableObject
 	public System.Collections.ObjectModel.ObservableCollection<ControlItemViewModel> Items
 	{
 		get { return _items; }
-		set { CheckObject(ref _items, value); }
+		set { CheckObject(ref _items!, value); }
 	}
 
 	/// <summary>
