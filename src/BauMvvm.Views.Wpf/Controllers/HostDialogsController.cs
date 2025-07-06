@@ -152,6 +152,10 @@ public class HostDialogsController: IHostDialogsController
 	/// </summary>
 	public string? OpenDialogSelectPath(string? pathSource)
 	{
+		// Guarda el directorio origen en el directorio seleccionado
+		if (!string.IsNullOrWhiteSpace(pathSource))
+			LastPathSelected = pathSource;
+		// Abre el cuadro de diálogo de selección de carpetas
 		if (OpenDialogSelectPath(LastPathSelected, out string? folder) == SystemControllerEnums.ResultType.Yes)
 			return folder;
 		else

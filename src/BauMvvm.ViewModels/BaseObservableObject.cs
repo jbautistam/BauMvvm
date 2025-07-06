@@ -80,22 +80,6 @@ public abstract class BaseObservableObject : INotifyPropertyChanged
 		_contextUi?.Send(action, new object());
 	}
 
-	///// <summary>
-	/////		Lanza el evento de cambio de propiedad
-	///// </summary>
-	//internal void RaiseEventPropertyChanged(string propertyName)
-	//{
-	//	OnPropertyChanged(propertyName);
-	//}
-
-	///// <summary>
-	/////		Lanza el evento <see cref="PropertyChanged"/>
-	///// </summary>
-	//protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = default!)
-	//{
-	//	OnPropertyChanged(ChangeUpdated, propertyName);
-	//}
-
 	/// <summary>
 	///		Lanza el evento <see cref="PropertyChanged"/>
 	/// </summary>
